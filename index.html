@@ -52,7 +52,7 @@
         
           <a class="main-nav-link" href="/archives">归档</a>
         
-          <a class="main-nav-link" href="/">简介</a>
+          <a class="main-nav-link" href="/about">简介</a>
         
       </nav>
       <nav id="sub-nav">
@@ -69,6 +69,72 @@
 </header>
       <div class="outer">
         <section id="main">
+  
+    <article id="post-Hexo学习教程" class="article article-type-post" itemscope itemprop="blogPost">
+  <div class="article-meta">
+    <a href="/2016/10/30/Hexo学习教程/" class="article-date">
+  <time datetime="2016-10-30T10:54:17.000Z" itemprop="datePublished">2016-10-30</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2016/10/30/Hexo学习教程/">Hexo学习教程</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Hexo个人博客搭建"><a href="#Hexo个人博客搭建" class="headerlink" title="Hexo个人博客搭建"></a>Hexo个人博客搭建</h1><h3 id="使用hexo-deploy部署至github"><a href="#使用hexo-deploy部署至github" class="headerlink" title="使用hexo deploy部署至github"></a>使用hexo deploy部署至github</h3><p>首先安装 hexo-deployer-git.</p>
+<pre>
+$ npm install hexo-deployer-git --save
+</pre>
+
+<p>其次需要在_config.xml文件中配置如下，具体可以<a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">参考配置</a>：</p>
+<pre>
+deploy:
+  type: git
+  repo: git@github.com:pengcgithub/pengcgithub.github.io.git
+  branch: master
+</pre>
+
+<p>type ： 固定写法，之前hexo版本有写github的，但是目前版本基本上都是git</p>
+<p>repo ： GitHub repository URL，如果你需要部署到其他平台此处需要写入他们的URL即可</p>
+<p>branch ： 分支的名称</p>
+<p>然后执行<code>hexo d</code>即可完成部署。</p>
+<h4 id="踩坑提醒"><a href="#踩坑提醒" class="headerlink" title="踩坑提醒"></a>踩坑提醒</h4><p><strong>1、读取不到git分支</strong></p>
+<p>报错 ： could not read Username for ‘<a href="https://github.com" target="_blank" rel="external">https://github.com</a>‘: No error</p>
+<p>解决 ： 将repo的连接方式换成SSH的连接方式</p>
+<p><strong>2、没有设置public key</strong></p>
+<p>报错 ： Permission denied (publickey).<br>fatal: Could not read from remote repository.<br>Please make sure you have the correct access rights<br>and the repository exists.</p>
+<p>解决 ： 在本机生成public key （参考<a href="https://help.github.com/articles/generating-an-ssh-key/" target="_blank" rel="external">github帮助</a>）：</p>
+<p><code>＃ssh-keygen -t rsa -b 4096 -C &quot;xxx@xxx.com&quot;</code></p>
+<p>然后在#user_id/.ssh目录下会生成两个文件，id_rsa.pub和id_rsa.(可以通过 <code>clip &lt; ~/.ssh/id_rsa.pub</code>命令去复制密钥文件内容)</p>
+<p>然后登陆github，在<a href="https://github.com/settings/ssh" target="_blank" rel="external">SSH设置页面</a>添加上刚才的public key文件也就是id_rsa.pub的内容即可。</p>
+<h3 id="参考文献"><a href="#参考文献" class="headerlink" title="参考文献"></a>参考文献</h3><p><a href="http://jiji262.github.io/2016/04/15/2016-04-15-hexo-github-pages-blog/" target="_blank" rel="external">1、手把手教你使用Hexo + Github Pages搭建个人独立博客</a></p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://pengcgithub.github.io/2016/10/30/Hexo学习教程/" data-id="ciuwituos0000hg6xy3848ff1" class="article-share-link">Share</a>
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+
+
   
     <article id="post-hello-world" class="article article-type-post" itemscope itemprop="blogPost">
   <div class="article-meta">
@@ -105,7 +171,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://pengcgithub.github.io/2016/09/30/hello-world/" data-id="citok7xs30000us6xeug18tnc" class="article-share-link">Share</a>
+      <a data-url="http://pengcgithub.github.io/2016/09/30/hello-world/" data-id="ciuwitup60002hg6xtcjyoxuw" class="article-share-link">Share</a>
       
       
     </footer>
@@ -114,102 +180,7 @@
 </article>
 
 
-  
-    <article id="post-试验品" class="article article-type-post" itemscope itemprop="blogPost">
-  <div class="article-meta">
-    <a href="/2014/08/05/试验品/" class="article-date">
-  <time datetime="2014-08-05T03:15:00.000Z" itemprop="datePublished">2014-08-05</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2014/08/05/试验品/">文章标题</a>
-    </h1>
-  
 
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="ArrayList"><a href="#ArrayList" class="headerlink" title="ArrayList"></a>ArrayList</h1><p>ArrayList底层有object[]组成，初始化容量为10，可以通过<code>ArrayList(int initialCapacity)</code>和<code>ArrayList(Collection&lt;? extends E&gt; c)</code>进行初始化。</p>
-<h2 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h2><blockquote>
-<p><code>transient Object[] elementData</code>    用于存储arraylist的缓存区，此处的transient标识elementData属性不需要自动序列化。</p>
-<p><code>int size</code>    数组的长度</p>
-</blockquote>
-<h2 id="不理解点"><a href="#不理解点" class="headerlink" title="不理解点"></a>不理解点</h2><h3 id="ensureCapacity"><a href="#ensureCapacity" class="headerlink" title="ensureCapacity"></a>ensureCapacity</h3><pre>
-    /**
-     *如有必要，增加此 ArrayList 实例的容量，
-     *以确保它至少能够容纳最小容量参数所指定的元素数。
-     * @param   minCapacity   the desired minimum capacity
-     */
-    public void ensureCapacity(int minCapacity) {
-        if (minCapacity > 0)
-            ensureCapacityInternal(minCapacity);
-    }
-
-    private void ensureCapacityInternal(int minCapacity) {
-        //此参数引用了abstractList中的属性，用于记录ArrayList结构性变化的次数。
-        //protected transient int modCount = 0;
-        modCount++;
-        if (minCapacity - elementData.length > 0)
-            grow(minCapacity);
-    }
-</pre>
-
-
-<pre>
-    /**
-     * Increases the capacity to ensure that it can hold at least the
-     * number of elements specified by the minimum capacity argument.
-     *
-     * @param minCapacity the desired minimum capacity
-     */
-    private void grow(int minCapacity) {
-        // overflow-conscious code
-        int oldCapacity = elementData.length;
-        //>>表示每次扩容原长度的1.5倍
-        int newCapacity = oldCapacity + (oldCapacity >> 1);
-        if (newCapacity - minCapacity < 0)
-            newCapacity = minCapacity;
-        if (newCapacity - MAX_ARRAY_SIZE > 0)
-            newCapacity = hugeCapacity(minCapacity);
-        // minCapacity is usually close to size, so this is a win:
-        //>> minCapacity 表示估算的最接近需要扩容的长度
-        elementData = Arrays.copyOf(elementData, newCapacity);
-    }
-
-    private static int hugeCapacity(int minCapacity) {
-        if (minCapacity < 0) // overflow
-            throw new OutOfMemoryError();
-        return (minCapacity > MAX_ARRAY_SIZE) ?
-            Integer.MAX_VALUE :
-            MAX_ARRAY_SIZE;
-    }
-</pre>
-
-<p>clone</p>
-<p>toArray</p>
-<p>remove</p>
-<p>Arrays.copyOf(elementData, size);</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://pengcgithub.github.io/2014/08/05/试验品/" data-id="citole3ek00002w6xuvksbfyh" class="article-share-link">Share</a>
-      
-      
-  <ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/java/">java</a></li></ul>
-
-    </footer>
-  </div>
-  
-</article>
 
 
   
@@ -222,29 +193,15 @@
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签</h3>
-    <div class="widget">
-      <ul class="tag-list"><li class="tag-list-item"><a class="tag-list-link" href="/tags/java/">java</a></li></ul>
-    </div>
-  </div>
-
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">标签云</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/java/" style="font-size: 10px;">java</a>
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">归档</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2014/08/">八月 2014</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/10/">十月 2016</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2016/09/">九月 2016</a></li></ul>
     </div>
   </div>
 
@@ -257,11 +214,11 @@
       <ul>
         
           <li>
-            <a href="/2016/09/30/hello-world/">Hello World</a>
+            <a href="/2016/10/30/Hexo学习教程/">Hexo学习教程</a>
           </li>
         
           <li>
-            <a href="/2014/08/05/试验品/">文章标题</a>
+            <a href="/2016/09/30/hello-world/">Hello World</a>
           </li>
         
       </ul>
@@ -288,7 +245,7 @@
   
     <a href="/archives" class="mobile-nav-link">归档</a>
   
-    <a href="/" class="mobile-nav-link">简介</a>
+    <a href="/about" class="mobile-nav-link">简介</a>
   
 </nav>
     
